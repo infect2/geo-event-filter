@@ -1,22 +1,33 @@
 <template>
-  <div>
-    <h1> Register </h1>
-    <input
-      type="email"
-      name="email"
-      v-model="email"
-      placeholder="email" />
-    <br>
-    <input
-      type="password"
-      name="password"
-      v-model="password"
-      placeholder="password" />
-    <br>
-    <div class="error" v-html="error" />
-    <br>
-    <button @click="register"> Register </button>
-  </div>
+  <v-layout column>
+    <v-flex xs6 offset-xs3>
+      <div class="white elevation-2">
+        <v-toolbar flat dense class="cyon" dark>
+        <v-toolbar-title>Register</v-toolbar-title>
+        </v-toolbar>
+          <div class="pl-4 pr-4 pt-2 pb-2">
+              <h1> Register </h1>
+              <input
+                type="email"
+                name="email"
+                v-model="email"
+                placeholder="email" />
+              <br>
+              <input
+                type="password"
+                name="password"
+                v-model="password"
+                placeholder="password" />
+              <br>
+              <div class="error" v-html="error" />
+              <br>
+              <v-btn class="cyon"
+                @click="register"> Register </v-btn>
+            </div>
+      </div>
+    </v-flex>
+  </v-layout>
+
 </template>
 
 <script>
@@ -38,9 +49,7 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.email = 'hello world'
-    }, 1000)
+    console.log('Register Vue is mounted')
   },
   methods: {
     async register () {
