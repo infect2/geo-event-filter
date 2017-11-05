@@ -12,11 +12,9 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-      title: 'hello world'
-    }
-  }
+  props: [
+    'title'
+  ]
 }
 </script>
 <style scoped>

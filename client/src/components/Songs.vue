@@ -1,7 +1,12 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <panel />
+      <panel title="Songs">
+        <h3> Yo Yo Yo</h3>
+        <p>
+          Hello there
+        </p>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
