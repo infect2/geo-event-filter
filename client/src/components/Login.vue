@@ -20,7 +20,7 @@
           <div class="error" v-html="error" />
           <br>
           <v-btn class="cyan"
-            @click="login"> Register </v-btn>
+            @click="login"> Login </v-btn>
         </div>
       </div>
     </v-flex>
@@ -42,11 +42,20 @@ export default {
   watch: {
   },
   mounted () {
-    console.log('Register Vue is mounted')
+    console.log('Lgoin Vue is mounted')
   },
   methods: {
     async login () {
-      AuthenticationService.login({ email: this.email, password: this.password })
+      try {
+        const response = await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
 }
