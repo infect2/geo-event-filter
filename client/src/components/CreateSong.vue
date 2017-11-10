@@ -5,26 +5,38 @@
         <panel title="Song MetaData">
           <v-text-field
             label="Title"
+            required
+            :rules="[rules.required]"
             v-model="song.title">
           </v-text-field>
           <v-text-field
             label="Artist"
+            required
+            :rules="[rules.required]"
             v-model="song.artist">
           </v-text-field>
           <v-text-field
             label="Genre"
+            required
+            :rules="[rules.required]"
             v-model="song.genre">
           </v-text-field>
           <v-text-field
             label="Album"
+            required
+            :rules="[rules.required]"
             v-model="song.album">
           </v-text-field>
           <v-text-field
             label="Album Image URL"
+            required
+            :rules="[rules.required]"
             v-model="song.albumImageUrl">
           </v-text-field>
           <v-text-field
             label="Yourtube ID"
+            required
+            :rules="[rules.required]"
             v-model="song.youtubeId">
           </v-text-field>
         </panel>
@@ -68,6 +80,9 @@ export default {
         youtubeId: null,
         lyrics: null,
         tab: null
+      },
+      rules: {
+        required: (value) => !!value || 'Required.'
       }
     }
   },
@@ -76,6 +91,12 @@ export default {
   },
   methods: {
     async create () {
+      this.error = null
+      const areAllFieldsFilledIn = Object.keys(this.song).every(key => !!this.song[key])
+      if (!areAllFieldsFilledIn) {
+        this.error = 'please fill in all the required fields.'
+        return
+      }
       try {
         console.log(this.song)
         await SongsService.post(this.song)
@@ -90,4 +111,7 @@ export default {
 }
 </script>
 <style scoped>
+  .danger-alert{
+    color:red;
+  }
 </style>
