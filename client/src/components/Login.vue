@@ -16,7 +16,8 @@
         <div class="error" v-html="error" />
         <br>
         <v-btn class="cyan"
-          @click="login"> Login </v-btn>
+          @click="login"> Login
+        </v-btn>
         </panel>
     </v-flex>
   </v-layout> 
