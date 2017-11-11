@@ -23,5 +23,15 @@ module.exports = {
         error: 'song create request handling error'
       })
     }
+  },
+  async show (req, res) {
+    try {
+      const song = await Song.findById(req.params.songId)
+      res.send(song)
+    } catch (err) {
+      res.status(500).send({
+        error: 'song show request handling error'
+      })
+    }
   }
 }
