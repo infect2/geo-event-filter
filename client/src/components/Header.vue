@@ -7,7 +7,7 @@
             :to="{
               name: 'root'
             }">
-            TabTracker
+            Vue-Express
           </router-link>
         </v-toolbar-title>
         <v-toolbar-items>

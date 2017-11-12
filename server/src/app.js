@@ -6,7 +6,7 @@ const {sequelize} = require('./models')
 const config = require('./config/config')
 
 const app = express()
-app.use(morgan('common'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -15,6 +15,8 @@ app.get('/status', (req, res) => {
     message: 'hello world'
   })
 })
+
+require('./passport')
 
 require('./routes')(app)
 
