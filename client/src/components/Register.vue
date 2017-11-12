@@ -18,7 +18,7 @@
             ></v-text-field>
         </form>
           <br>
-          <div class="error" v-html="error" />
+          <div class="danger-alert" v-html="error" />
           <br>
           <v-btn class="cyan"
             @click="register"> Register </v-btn>
@@ -67,9 +67,4 @@ export default {
 </script>
 
 <style scoped>
-
-.error {
-  color: red
-}
-
 </style>
