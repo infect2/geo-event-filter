@@ -31,7 +31,6 @@
 <script>
 
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default {
   name: 'Register',
@@ -41,9 +40,6 @@ export default {
       password: '',
       error: null
     }
-  },
-  components: {
-    Panel
   },
   watch: {
     email (value) {

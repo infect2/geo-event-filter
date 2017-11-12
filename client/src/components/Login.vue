@@ -25,7 +25,6 @@
       
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default {
   name: 'Login',
@@ -35,9 +34,6 @@ export default {
       password: '',
       error: null
     }
-  },
-  components: {
-    Panel
   },
   watch: {
   },
